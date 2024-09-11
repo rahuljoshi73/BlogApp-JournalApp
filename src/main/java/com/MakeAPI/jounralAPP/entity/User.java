@@ -21,6 +21,9 @@ public class User {
     @Generated
     private ObjectId id;
 
+    private String email;
+    private boolean sentimentAnalysis;
+
     @NonNull
     private String userName;
     @NonNull
