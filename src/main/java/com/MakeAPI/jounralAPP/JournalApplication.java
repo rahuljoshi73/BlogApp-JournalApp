@@ -6,12 +6,14 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.MongoDatabaseFactory;
 import org.springframework.data.mongodb.MongoTransactionManager;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
-@SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
+@SpringBootApplication
 @EnableTransactionManagement
+@EnableScheduling
 public class JournalApplication {
 
 	public static void main(String[] args) {
@@ -23,7 +25,7 @@ public class JournalApplication {
 	}
 
 }
-
+//(exclude = {SecurityAutoConfiguration.class})
 
 //Rest Api :- representational state transfer application programming interface
 //communicate btw client and server transfer state mean information

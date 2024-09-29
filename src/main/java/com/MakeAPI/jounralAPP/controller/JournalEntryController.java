@@ -2,6 +2,7 @@ package com.MakeAPI.jounralAPP.controller;
 
 import com.MakeAPI.jounralAPP.entity.JournalEntry;
 import com.MakeAPI.jounralAPP.entity.User;
+import com.MakeAPI.jounralAPP.enums.Sentiment;
 import com.MakeAPI.jounralAPP.service.JournalEntryService;
 import com.MakeAPI.jounralAPP.service.UserService;
 import org.bson.types.ObjectId;
@@ -50,7 +51,7 @@ public class JournalEntryController {
             String userName = authentication.getName();
 
             journalEntryService.saveEntry(myEntry,userName);
-            return new ResponseEntity<>(myEntry, HttpStatus.OK);
+            return new ResponseEntity<>(myEntry, HttpStatus.CREATED);
 
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

@@ -2,6 +2,7 @@ package com.MakeAPI.jounralAPP.service;
 
 import com.MakeAPI.jounralAPP.entity.JournalEntry;
 import com.MakeAPI.jounralAPP.entity.User;
+import com.MakeAPI.jounralAPP.enums.Sentiment;
 import com.MakeAPI.jounralAPP.repository.JournalEntryRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
@@ -34,8 +35,10 @@ public class JournalEntryService {
             try{
                 User user = userService.findBYUserName(userName);
                 journalEntry.setDate(LocalDateTime.now());
+
                 JournalEntry saved = journalEntryRepo.save(journalEntry);
                 user.getJournalEntries().add(saved);
+
                 userService.saveUser(user);
 
             }catch(Exception e){
