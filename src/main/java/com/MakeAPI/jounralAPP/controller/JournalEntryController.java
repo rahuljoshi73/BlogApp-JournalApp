@@ -19,12 +19,14 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/journal")
+@CrossOrigin(origins = "http://localhost:3000")
 public class JournalEntryController {
 
     @Autowired
     private JournalEntryService journalEntryService;
     @Autowired
     private UserService userService;
+
 
     @GetMapping
     public ResponseEntity<?> getAllJournalEntriesOfUser() {

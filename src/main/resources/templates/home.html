@@ -1,10 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal App</title>
+    <link rel="homecss" href="homecss.css">
 </head>
 <body>
-$END$
+<div id="container">
+    <header>
+        <h1>My Journal App</h1>
+        <nav>
+            <a href="#" id="home-link">Home</a>
+            <a href="#" id="login-link">Login</a>
+            <a href="#" id="register-link">Register</a>
+            <a href="#" id="logout-link" style="display:none;">Logout</a>
+        </nav>
+    </header>
+
+    <main id="content">
+        <!-- Home, Login, and Register Forms will load here -->
+    </main>
+
+    <footer>
+        <p>© 2024 My Journal App</p>
+    </footer>
+</div>
+
+<template id="journal-entry-template">
+    <div class="journal-entry">
+        <h2 class="entry-title"></h2>
+        <p class="entry-content"></p>
+        <p class="entry-date"></p>
+    </div>
+</template>
+
+<script src="app.js"></script>
 </body>
 </html>
