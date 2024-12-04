@@ -87,7 +87,7 @@ public class JournalEntryController {
 
 
     @DeleteMapping("id/{myId}")
-    public ResponseEntity<?>deleteJournalEntryBYId(@PathVariable ObjectId myId){
+    public ResponseEntity<JournalEntry>deleteJournalEntryBYId(@PathVariable ObjectId myId){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName = authentication.getName();
         boolean removed = journalEntryService.deleteBYid(myId,userName);
@@ -99,7 +99,7 @@ public class JournalEntryController {
         }
     }
     @PutMapping("id/{myId}")
-    public ResponseEntity<?> updateJournalById(@PathVariable ObjectId myId, @RequestBody JournalEntry newEntry) {
+    public ResponseEntity<JournalEntry> updateJournalById(@PathVariable ObjectId myId, @RequestBody JournalEntry newEntry) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName = authentication.getName();
         User user = userService.findBYUserName(userName);

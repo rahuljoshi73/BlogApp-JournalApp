@@ -21,13 +21,14 @@ public class UserService {
 
     @Autowired
     private UserRepo userRepo;
-    private static final PasswordEncoder pass = new BCryptPasswordEncoder();
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
 
     public void saveNewUser(User user) {
         try {
-            log.info("user name: {}", user.getUserName());
-            user.setPassword(pass.encode(user.getPassword()));
+            log.info("user name: {}", user.getUsername());
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
             user.setRoles(List.of("User"));
             userRepo.save(user);
         }catch (Exception e){
@@ -35,8 +36,8 @@ public class UserService {
         }
     }
     public void saveAdmin(User user) {
-        log.info("user name: {}", user.getUserName());
-        user.setPassword(pass.encode(user.getPassword()));
+        log.info("user name: {}", user.getUsername());
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRoles(List.of("ADMIN","User"));
         userRepo.save(user);
     }
@@ -64,6 +65,7 @@ public class UserService {
     public User findBYUserName(String userName) {
         return userRepo.findByUserName(userName);
     }
+
 
 
 }
